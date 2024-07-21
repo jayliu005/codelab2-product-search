@@ -50,10 +50,10 @@ class ProductSearchAPIClient(context: Context){
         // Option 2: Go through the Vision API Product Search quickstart and deploy to your project.
         // Fill in the const below with your project info.
 //        const val VISION_API_URL = "https://vision.googleapis.com/v1"
-//        const val VISION_API_KEY = "YOUR_API_KEY"
-//        const val VISION_API_PROJECT_ID = "YOUR_PROJECT_ID"
-//        const val VISION_API_LOCATION_ID = "YOUR_LOCATION_ID"
-//        const val VISION_API_PRODUCT_SET_ID = "YOUR_PRODUCT_SET_ID"
+//        const val VISION_API_KEY = "AIzaSyAAjVYiX5hxzOfF_mq0VzuBQYlH0NxXqxg"
+//        const val VISION_API_PROJECT_ID = "vision-building-store"
+//        const val VISION_API_LOCATION_ID = "asia-east1"
+//        const val VISION_API_PRODUCT_SET_ID = "product_set0"
     }
 
     // Instantiate the RequestQueue.
