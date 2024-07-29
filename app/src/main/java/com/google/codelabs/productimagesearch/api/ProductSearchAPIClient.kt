@@ -40,20 +40,20 @@ class ProductSearchAPIClient(context: Context){
 
         // Define the product search backend
         // Option 1: Use the demo project that we have already deployed for you
-        const val VISION_API_URL =
-            "https://us-central1-odml-codelabs.cloudfunctions.net/productSearch"
-        const val VISION_API_KEY = ""
-        const val VISION_API_PROJECT_ID = "odml-codelabs"
-        const val VISION_API_LOCATION_ID = "us-east1"
-        const val VISION_API_PRODUCT_SET_ID = "product_set0"
+//        const val VISION_API_URL =
+//            "https://us-central1-odml-codelabs.cloudfunctions.net/productSearch"
+//        const val VISION_API_KEY = ""
+//        const val VISION_API_PROJECT_ID = "odml-codelabs"
+//        const val VISION_API_LOCATION_ID = "us-east1"
+//        const val VISION_API_PRODUCT_SET_ID = "product_set0"
 
         // Option 2: Go through the Vision API Product Search quickstart and deploy to your project.
         // Fill in the const below with your project info.
-//        const val VISION_API_URL = "https://vision.googleapis.com/v1"
-//        const val VISION_API_KEY = "AIzaSyAAjVYiX5hxzOfF_mq0VzuBQYlH0NxXqxg"
-//        const val VISION_API_PROJECT_ID = "vision-building-store"
-//        const val VISION_API_LOCATION_ID = "asia-east1"
-//        const val VISION_API_PRODUCT_SET_ID = "product_set_tile"
+        const val VISION_API_URL = "https://vision.googleapis.com/v1"
+        const val VISION_API_KEY = "AIzaSyAAjVYiX5hxzOfF_mq0VzuBQYlH0NxXqxg"
+        const val VISION_API_PROJECT_ID = "vision-building-store"
+        const val VISION_API_LOCATION_ID = "asia-east1"
+        const val VISION_API_PRODUCT_SET_ID = "product_set_tile"
     }
 
     // Instantiate the RequestQueue.
@@ -99,7 +99,7 @@ class ProductSearchAPIClient(context: Context){
                     "productSearchParams": {
                       "productSet": "projects/${VISION_API_PROJECT_ID}/locations/${VISION_API_LOCATION_ID}/productSets/${VISION_API_PRODUCT_SET_ID}",
                       "productCategories": [
-                           "apparel-v2"
+                           "general-v1"
                          ]
                     }
                   }
@@ -161,6 +161,8 @@ class ProductSearchAPIClient(context: Context){
 
                 // Convert the GCS URL to its HTTPS representation
                 val httpUri = gcsUri.replace("gs://", "https://storage.googleapis.com/")
+//                val httpUri = gcsUri.replace("gs://", "https://storage.cloud.google.com/")
+
 
                 // Save the HTTPS URL to the search result object
                 searchResult.imageUri = httpUri
