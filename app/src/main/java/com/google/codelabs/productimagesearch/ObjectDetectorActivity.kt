@@ -54,6 +54,7 @@ class ObjectDetectorActivity : AppCompatActivity() {
 
     private lateinit var viewBinding: ActivityObjectDetectorBinding
     private var cameraPhotoUri: Uri? = null
+    private var photoBitmap: Bitmap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,8 +89,13 @@ class ObjectDetectorActivity : AppCompatActivity() {
             ivPreset2.setOnClickListener { setViewAndDetect(getBitmapFromAsset(IMAGE_PRESET_2)) }
             ivPreset3.setOnClickListener { setViewAndDetect(getBitmapFromAsset(IMAGE_PRESET_3)) }
             // Callback received when the user taps on any of the detected objects.
-            ivPreview.setOnObjectClickListener { objectImage ->
-                startProductImageSearch(objectImage)
+//            ivPreview.setOnObjectClickListener { objectImage ->
+//                startProductImageSearch(objectImage)
+//            }
+            ivPreview.setOnClickListener {
+                photoBitmap?.let {
+                    startProductImageSearch(it)
+                }
             }
             // Default display
             setViewAndDetect(getBitmapFromAsset(IMAGE_PRESET_2))
@@ -268,6 +274,7 @@ class ObjectDetectorActivity : AppCompatActivity() {
         }
         
         // Make a copy of the bitmap in a desirable format
+        this.photoBitmap = bitmap?.copy(Bitmap.Config.ARGB_8888, false)
         return bitmap?.copy(Bitmap.Config.ARGB_8888, false)
     }
 
